@@ -1,120 +1,340 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="BillFect is coming soon." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08101f">
+  <meta name="description" content="BillFect is taking shape. A little more clarity, a little less complexity. Coming soon to your phone.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://billfect.com/">
+  <meta property="og:site_name" content="BillFect">
+  <meta property="og:title" content="BillFect — Coming Soon">
+  <meta property="og:description" content="A little more clarity. A little less complexity.">
+  <meta property="og:image" content="https://billfect.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="BillFect — Coming Soon">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://billfect.com/">
+  <meta name="twitter:title" content="BillFect — Coming Soon">
+  <meta name="twitter:description" content="A little more clarity. A little less complexity.">
+  <meta name="twitter:image" content="https://billfect.com/og-image.png">
+  <meta name="twitter:image:alt" content="BillFect — Coming Soon">
   <title>BillFect — Coming Soon</title>
-
   <style>
-    * {
-      box-sizing: border-box;
+    :root {
+      color-scheme: dark;
+      --background: #08101f;
+      --text: #f3f7fc;
+      --muted: #b2c0d3;
+      --accent: #85c8ff;
+      --line: rgba(182, 213, 243, .18);
     }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
+      min-width: 320px;
       margin: 0;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f6f8fc;
-      color: #172033;
+      background: var(--background);
+      color: var(--text);
+      font-family: "Segoe UI", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
     }
-
-    .card {
-      width: 100%;
-      max-width: 680px;
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 24px;
-      padding: 56px 32px 36px;
-      text-align: center;
-      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.08);
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; border-radius: 2px; }
+    .shell { width: min(100% - 40px, 980px); margin-inline: auto; text-align: center; }
+    .eyebrow {
+      margin: 0;
+      color: var(--accent);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .2em;
+      line-height: 1.5;
     }
-
+    .brand {
+      position: relative;
+      isolation: isolate;
+      padding-top: clamp(88px, 11vw, 148px);
+    }
+    .brand::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      left: 50%;
+      top: 32px;
+      width: min(600px, 100%);
+      height: 280px;
+      transform: translateX(-50%);
+      background: radial-gradient(ellipse, rgba(42, 114, 186, .25), transparent 70%);
+      pointer-events: none;
+    }
     .logo {
-      font-size: 58px;
+      margin: 0;
+      font-size: clamp(4rem, 9vw, 6.2rem);
       font-weight: 800;
-      letter-spacing: -3px;
-      margin-bottom: 24px;
+      letter-spacing: -.075em;
+      line-height: 1;
     }
-
-    .logo span {
-      color: #2563eb;
-    }
-
-    h1 {
-      margin: 0 0 16px;
-      font-size: 34px;
-    }
-
-    p {
-      margin: 0 auto;
-      max-width: 500px;
-      font-size: 18px;
-      line-height: 1.6;
-      color: #667085;
-    }
-
-    .status {
+    .logo span { color: var(--accent); }
+    .coming-badge {
       display: inline-block;
-      margin-top: 28px;
-      padding: 10px 16px;
+      margin-top: 32px;
+      padding: 9px 17px;
+      border: 1px solid rgba(133, 200, 255, .35);
       border-radius: 999px;
-      background: #eef4ff;
-      color: #1d4ed8;
-      font-size: 14px;
-      font-weight: 600;
+      background: rgba(59, 124, 189, .09);
     }
-
-    .creators {
-      margin-top: 22px;
-      font-size: 16px;
-      font-weight: 600;
-      color: #344054;
+    .hero { padding-block: clamp(76px, 10vw, 128px) 112px; }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.9rem, 6.3vw, 4.8rem);
+      font-weight: 650;
+      letter-spacing: -.065em;
+      line-height: 1.14;
     }
-
-    footer {
-      margin-top: 42px;
-      padding-top: 24px;
-      border-top: 1px solid #e5e7eb;
-      font-size: 14px;
-      color: #667085;
+    h1 span { display: block; }
+    h1 span + span { color: var(--accent); }
+    .accent-rule { width: 76px; height: 2px; margin: 40px auto 42px; background: var(--accent); border-radius: 2px; }
+    .intro { max-width: 690px; margin: auto; color: var(--muted); font-size: clamp(1.04rem, 1.7vw, 1.18rem); line-height: 1.75; }
+    .intro p { margin: 0 auto 20px; }
+    .intro p:last-child { margin-bottom: 0; }
+    .section { padding-block: 84px 94px; border-top: 1px solid var(--line); }
+    .section .eyebrow { margin-bottom: 32px; }
+    .stores { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; width: min(100%, 700px); margin: auto; }
+    .store-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 160px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 19px;
+      background: linear-gradient(155deg, rgba(34, 64, 98, .58), rgba(15, 29, 49, .72));
     }
-
-    footer a {
-      color: #172033;
-      text-decoration: none;
+    .store-card strong { font-size: clamp(1.2rem, 2.1vw, 1.5rem); font-weight: 630; line-height: 1.3; }
+    .store-card span { margin-top: 11px; color: var(--muted); font-size: .98rem; }
+    .tech-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 11px; margin: 0 auto 51px; padding: 0; list-style: none; }
+    .tech-badges li { padding: 10px 17px; border: 1px solid var(--line); border-radius: 999px; background: rgba(25, 45, 70, .55); color: var(--text); font-size: .96rem; }
+    .coming-next { margin: 0 0 12px; color: var(--accent); font-size: .72rem; font-weight: 700; letter-spacing: .2em; }
+    .next-text { margin: 0; color: var(--muted); font-size: 1.07rem; }
+    .people-lines { margin: 0; padding: 0; list-style: none; }
+    .people-lines li { margin: 0 auto 17px; color: var(--muted); font-size: clamp(1.02rem, 1.7vw, 1.17rem); line-height: 1.6; }
+    .people-lines strong { color: var(--text); font-weight: 650; }
+    .closing { margin: 53px 0 0; color: var(--muted); font-size: 1rem; line-height: 1.6; }
+    .site-footer { padding-block: 34px 50px; border-top: 1px solid var(--line); color: var(--muted); font-size: .9rem; line-height: 1.6; }
+    .site-footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px; margin-bottom: 16px; }
+    .site-footer a { text-decoration-color: rgba(178, 192, 211, .55); text-underline-offset: 4px; }
+    .site-footer a:hover { color: var(--text); text-decoration-color: var(--text); }
+    .analytics-preferences { padding: 0; border: 0; background: none; color: inherit; font: inherit; text-decoration: underline; text-decoration-color: rgba(178, 192, 211, .55); text-underline-offset: 4px; cursor: pointer; }
+    .analytics-preferences:hover { color: var(--text); text-decoration-color: var(--text); }
+    .analytics-preferences:focus-visible, .analytics-consent button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+    .analytics-consent { position: fixed; z-index: 10; right: 16px; bottom: 16px; width: min(340px, calc(100% - 32px)); padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: #12233b; box-shadow: 0 12px 36px rgba(0, 0, 0, .35); color: var(--text); text-align: left; font-size: .9rem; line-height: 1.45; }
+    .analytics-consent[hidden] { display: none; }
+    .analytics-consent p { margin: 0 0 12px; }
+    .analytics-consent-actions { display: flex; gap: 8px; }
+    .analytics-consent-actions button { flex: 1; min-height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(25, 45, 70, .55); color: var(--text); font: inherit; cursor: pointer; }
+    .analytics-consent-actions button:hover { border-color: var(--accent); }
+    @media (max-width: 600px) {
+      .shell { width: min(100% - 36px, 440px); }
+      .brand { padding-top: 82px; }
+      .brand::before { top: 5px; height: 230px; }
+      .coming-badge { margin-top: 24px; }
+      .hero { padding-block: 78px 84px; }
+      h1 { font-size: clamp(2.25rem, 9.2vw, 3.2rem); }
+      .accent-rule { margin-block: 32px 34px; }
+      .section { padding-block: 70px 78px; }
+      .stores { gap: 12px; }
+      .store-card { min-height: 145px; padding: 18px 12px; }
+      .store-card span { font-size: .91rem; }
+      .tech-badges { gap: 9px; }
+      .tech-badges li { padding: 9px 14px; }
     }
-
-    footer a:hover {
-      text-decoration: underline;
+    @media (max-width: 340px) {
+      .stores { grid-template-columns: 1fr; }
+      .store-card { min-height: 112px; }
     }
+    @media (min-width: 901px) {
+      .eyebrow { font-size: .7rem; line-height: 1.3; }
+      .brand { padding-top: 12px; }
+      .logo { font-size: 3.45rem; }
+      .coming-badge { margin-top: 8px; padding: 4px 13px; }
+      .hero { padding-block: 16px 18px; }
+      h1 { font-size: 3.2rem; line-height: 1.08; }
+      .accent-rule { margin: 12px auto 13px; }
+      .intro { max-width: 860px; font-size: 1rem; line-height: 1.42; }
+      .intro p { margin-bottom: 6px; }
+      .section { padding-block: 13px 15px; }
+      .section .eyebrow { margin-bottom: 9px; }
+      .store-card { min-height: 74px; padding: 8px 18px; }
+      .store-card strong { font-size: 1.15rem; }
+      .store-card span { margin-top: 3px; font-size: .9rem; }
+      .tech-badges { gap: 7px; margin-bottom: 12px; }
+      .tech-badges li { padding: 5px 12px; font-size: .88rem; }
+      .coming-next { margin-bottom: 3px; }
+      .next-text { font-size: .95rem; }
+      .people-lines li { margin-bottom: 5px; font-size: .95rem; line-height: 1.35; }
+      .closing { margin-top: 10px; font-size: .9rem; line-height: 1.4; }
+      .site-footer { padding-block: 10px 13px; font-size: .82rem; line-height: 1.3; }
+      .site-footer nav { margin-bottom: 4px; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .logo { animation: arrive .8s ease-out both; }
+      .coming-badge { animation: arrive .65s .08s ease-out both; }
+      h1 span:first-child { animation: arrive .7s .12s ease-out both; }
+      h1 span:last-child { animation: arrive .7s .22s ease-out both; }
+      .intro { animation: arrive .7s .32s ease-out both; }
+      .brand::before { animation: glow 7s ease-in-out infinite alternate; }
+      .reveal.is-visible { animation: arrive .65s ease-out both; }
+      @keyframes arrive { from { opacity: .75; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+      @keyframes glow { from { opacity: .7; } to { opacity: 1; } }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   </style>
 </head>
-
 <body>
-  <div class="card">
-    <div class="logo">Bill<span>Fect</span></div>
-
-    <h1>Coming Soon</h1>
-
-    <p>
-      We’re getting BillFect ready for launch.
-      More information will be available here soon.
-    </p>
-
-    <div class="status">In development</div>
-
-    <div class="creators">Created by Michael &amp; Mai</div>
-
-    <footer>
+  <header class="brand shell">
+    <div class="logo" aria-label="BillFect">Bill<span>Fect</span></div>
+    <p class="eyebrow coming-badge">COMING SOON</p>
+  </header>
+  <main class="shell">
+    <section class="hero" aria-labelledby="main-heading">
+      <h1 id="main-heading"><span>A little more clarity.</span><span>A little less complexity.</span></h1>
+      <div class="accent-rule" aria-hidden="true"></div>
+      <div class="intro">
+        <p>Sometimes, a simple idea is all it takes to make everyday experiences a little easier.</p>
+        <p>BillFect is taking shape through thoughtful technology, creative thinking, and attention to the details that matter.</p>
+        <p>We're building, refining, and getting ready to share more.</p>
+      </div>
+    </section>
+    <section class="section reveal" aria-labelledby="stores-heading">
+      <h2 class="eyebrow" id="stores-heading">COMING TO YOUR PHONE</h2>
+      <div class="stores">
+        <div class="store-card"><strong>Google Play</strong><span>Coming Soon</span></div>
+        <div class="store-card"><strong>Apple App Store</strong><span>Coming Later</span></div>
+      </div>
+    </section>
+    <section class="section reveal" aria-labelledby="technology-heading">
+      <h2 class="eyebrow" id="technology-heading">THE TECHNOLOGY BEHIND BILLFECT</h2>
+      <ul class="tech-badges">
+        <li>Flutter</li><li>Python</li><li>Firebase</li><li>Google Cloud</li><li>OpenAI</li><li>Google Analytics</li>
+      </ul>
+      <h3 class="coming-next">COMING NEXT</h3>
+      <p class="next-text">Apple iOS · Xcode</p>
+    </section>
+    <section class="section reveal" aria-labelledby="people-heading">
+      <h2 class="eyebrow" id="people-heading">THE PEOPLE BEHIND BILLFECT</h2>
+      <ul class="people-lines">
+        <li>Founded &amp; Developed by <strong>Mickey</strong></li>
+        <li>Product Experience &amp; UI/UX Design by <strong>Mai</strong></li>
+        <li>Art Direction &amp; Creative Design by <strong>Noa</strong></li>
+        <li>Product Concept Contributions by <strong>Alon</strong></li>
+      </ul>
+      <p class="closing">Human creativity. AI-assisted development. Thoughtful design.</p>
+    </section>
+  </main>
+  <footer class="site-footer shell">
+    <nav aria-label="Footer links and analytics choices">
       <a href="/privacy/">Privacy Policy</a>
-      &nbsp;·&nbsp;
-      <a href="mailto:privacy@billfect.com">privacy@billfect.com</a>
-    </footer>
+      <a href="/delete-account/">Delete Account</a>
+      <button class="analytics-preferences" id="analytics-preferences" type="button" aria-controls="analytics-consent" aria-expanded="false">Analytics choices</button>
+    </nav>
+    <span>© 2026 BillFect. All rights reserved.</span>
+  </footer>
+  <div class="analytics-consent" id="analytics-consent" role="region" aria-label="Analytics choices" hidden>
+    <p>May we use Google Analytics to understand visits to this website? Your choice is optional and can be changed here anytime.</p>
+    <div class="analytics-consent-actions">
+      <button type="button" id="analytics-reject">Reject</button>
+      <button type="button" id="analytics-accept">Accept</button>
+    </div>
   </div>
+  <script>
+    if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        }
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+    }
+
+    const analyticsId = 'G-MJREX920YF';
+    const consentKey = 'billfect.analytics-consent-v1';
+    const consentPanel = document.getElementById('analytics-consent');
+    const preferencesButton = document.getElementById('analytics-preferences');
+    let analyticsLoaded = false;
+    let openedFromPreferences = false;
+
+    function storedConsent() {
+      try { return localStorage.getItem(consentKey); } catch { return null; }
+    }
+
+    function rememberConsent(value) {
+      try { localStorage.setItem(consentKey, value); } catch { /* Ask again next visit if storage is unavailable. */ }
+    }
+
+    function enableAnalytics() {
+      if (analyticsLoaded) return;
+      analyticsLoaded = true;
+      window['ga-disable-' + analyticsId] = false;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag('consent', 'default', {
+        analytics_storage: 'granted',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied'
+      });
+      window.gtag('js', new Date());
+      window.gtag('config', analyticsId, {
+        send_page_view: false,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+        page_location: location.origin + location.pathname,
+        page_referrer: ''
+      });
+      window.gtag('event', 'page_view', {
+        send_to: analyticsId,
+        page_location: location.origin + location.pathname,
+        page_title: document.title
+      });
+      const script = document.createElement('script');
+      script.async = true;
+      script.referrerPolicy = 'no-referrer';
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(analyticsId);
+      document.head.appendChild(script);
+    }
+
+    function showConsent() {
+      consentPanel.hidden = false;
+      preferencesButton.setAttribute('aria-expanded', 'true');
+    }
+
+    function chooseConsent(value) {
+      rememberConsent(value);
+      consentPanel.hidden = true;
+      preferencesButton.setAttribute('aria-expanded', 'false');
+      if (openedFromPreferences) preferencesButton.focus();
+      openedFromPreferences = false;
+      if (value === 'accepted') {
+        enableAnalytics();
+      } else if (analyticsLoaded) {
+        window['ga-disable-' + analyticsId] = true;
+        location.reload();
+      }
+    }
+
+    preferencesButton.addEventListener('click', () => {
+      openedFromPreferences = true;
+      showConsent();
+      document.getElementById('analytics-accept').focus();
+    });
+    document.getElementById('analytics-accept').addEventListener('click', () => chooseConsent('accepted'));
+    document.getElementById('analytics-reject').addEventListener('click', () => chooseConsent('rejected'));
+    if (storedConsent() === 'accepted') enableAnalytics();
+    else if (storedConsent() !== 'rejected') showConsent();
+  </script>
 </body>
 </html>
